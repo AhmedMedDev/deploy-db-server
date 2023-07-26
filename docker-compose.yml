@@ -6,7 +6,7 @@ services:
     container_name: database
     restart: always
     volumes:
-      # - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
       - ./entrypoint/:/docker-entrypoint-initdb.d/:ro
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -20,7 +20,6 @@ services:
     restart: always
     environment:
       PMA_HOST: database
-      PMA_PORT: 3308
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
